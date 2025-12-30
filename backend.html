@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ระบบหลังบ้าน - Admin Panel</title>
+    <style>
+        body { font-family: 'Tahoma', sans-serif; margin: 0; background: #eee; }
+        .header { background: #333; color: white; padding: 10px 20px; display: flex; justify-content: space-between; }
+        .container { display: flex; height: 100vh; }
+        .sidebar { width: 200px; background: #444; color: white; padding: 20px; }
+        .sidebar a { display: block; color: #ddd; text-decoration: none; padding: 10px; border-bottom: 1px solid #555; }
+        .sidebar a:hover { background: #666; color: white; }
+        .content { flex: 1; padding: 30px; }
+        .card { background: white; padding: 20px; margin-bottom: 20px; border: 1px solid #ccc; box-shadow: 2px 2px 5px #ccc; }
+        .stat-box { display: inline-block; width: 30%; background: #ff9900; color: white; padding: 20px; margin-right: 10px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div>Admin Control Panel v1.0</div>
+        <div><a href="index.html" style="color:white; text-decoration:none;">ออกจากระบบ</a></div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h3>เมนูหลัก</h3>
+            <a href="#">🏠 ภาพรวม</a>
+            <a href="#">📝 เขียนไดอารี่</a>
+            <a href="#">🖼 จัดการรูปภาพ</a>
+            <a href="#">💬 ความคิดเห็น (5 ใหม่)</a>
+            <a href="#">⚙️ ตั้งค่าเว็บ</a>
+        </div>
+
+        <div class="content">
+            <h2>ยินดีต้อนรับ, Sanmao26</h2>
+            
+            <div style="display:flex;">
+                <div class="stat-box">
+                    <h1>1,250</h1>
+                    ผู้เข้าชม
+                </div>
+                <div class="stat-box" style="background: #00cc66;">
+                    <h1>54</h1>
+                    เพื่อนใหม่
+                </div>
+                <div class="stat-box" style="background: #3366ff;">
+                    <h1>12</h1>
+                    ข้อความ
+                </div>
+            </div>
+
+            <br>
+            <div class="card">
+                <h3>📢 ประกาศด่วน</h3>
+                <p>อย่าลืมอัปเดตเพลงหน้าโปรไฟล์นะ!</p>
+            </div>
+
+            <div class="card">
+                <h3>✏️ แก้ไขข้อมูลล่าสุด</h3>
+                <ul>
+                    <li>แก้ไข "About Me" เมื่อ 2 นาทีที่แล้ว</li>
+                    <li>อัปโหลดรูป "แมว.jpg"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
