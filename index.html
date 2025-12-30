@@ -92,4 +92,57 @@
 
     </div>
 </body>
+    <script>
+    // เมื่อเปิดเว็บ ให้โหลดโพสต์เก่าๆ ขึ้นมาแสดง
+    document.addEventListener("DOMContentLoaded", function() {
+        loadPosts();
+    });
+
+    function postStatus() {
+        var text = document.getElementById("statusInput").value;
+        if (text.trim() === "") {
+            alert("กรุณาพิมพ์ข้อความก่อนโพสต์!");
+            return;
+        }
+
+        // สร้างข้อมูลโพสต์
+        var newPost = {
+            content: text,
+            date: new Date().toLocaleString()
+        };
+
+        // ดึงข้อมูลเก่ามา + เพิ่มอันใหม่เข้าไป
+        var allPosts = JSON.parse(localStorage.getItem("hi5_posts") || "[]");
+        allPosts.unshift(newPost); // เอาอันใหม่ไว้บนสุด
+        
+        // บันทึกลงความจำเครื่อง (LocalStorage)
+        localStorage.setItem("hi5_posts", JSON.stringify(allPosts));
+
+        // เคลียร์ช่องพิมพ์และโหลดหน้าใหม่
+        document.getElementById("statusInput").value = "";
+        loadPosts();
+    }
+
+    function loadPosts() {
+        var allPosts = JSON.parse(localStorage.getItem("hi5_posts") || "[]");
+        var feedDiv = document.getElementById("newsFeed");
+        feedDiv.innerHTML = ""; // ล้างหน้าจอก่อน
+
+        allPosts.forEach(function(post) {
+            var postHTML = `
+                <div class="box">
+                    <div class="box-head">Sanmao26 โพสต์เมื่อ: ${post.date}</div>
+                    <div class="box-body">
+                        ${post.content}
+                        <br><br>
+                        <div style="font-size:10px; color:#666;">
+                            [ <a href="#">Like</a> ] [ <a href="#">Comment</a> ]
+                        </div>
+                    </div>
+                </div>
+            `;
+            feedDiv.innerHTML += postHTML;
+        });
+    }
+</script>
 </html>
